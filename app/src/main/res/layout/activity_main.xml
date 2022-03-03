@@ -26,29 +26,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView45"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/gilroy_bold"
-                android:text="Tests"
-                android:textColor="#F9F7F7"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/view17"
-                app:layout_constraintStart_toEndOf="@+id/view17"
-                app:layout_constraintTop_toTopOf="@+id/view17" />
-
-            <View
-                android:id="@+id/view17"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="16dp"
-                android:background="#BB3277"
-                app:layout_constraintEnd_toEndOf="@+id/view16"
-                app:layout_constraintStart_toStartOf="@+id/view16"
-                app:layout_constraintTop_toBottomOf="@+id/view16" />
-
-            <TextView
                 android:id="@+id/textView44"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,18 +112,19 @@
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="36dp"
                 android:background="#CFA02C"
-                app:layout_constraintStart_toEndOf="@+id/barchart"
-                app:layout_constraintTop_toTopOf="@+id/barchart" />
+                app:layout_constraintStart_toEndOf="@+id/piechart"
+                app:layout_constraintTop_toTopOf="@+id/piechart" />
 
             <org.eazegraph.lib.charts.PieChart
-                android:id="@+id/barchart"
+                android:id="@+id/piechart"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="24dp"
                 android:padding="10dp"
+                android:visibility="invisible"
                 app:egBarWidth="20dp"
                 app:egFixedBarWidth="true"
                 app:egInnerPaddingColor="@color/color_primary_dark"
@@ -217,7 +195,7 @@
                 app:srcCompat="@drawable/ic_virus" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -268,7 +246,7 @@
                 android:paddingLeft="10dp"
                 android:paddingEnd="10dp"
                 android:text="Keep Distance"
-                android:textColor="@color/color_primary_dark"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView8"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -283,7 +261,7 @@
                 android:paddingLeft="10dp"
                 android:paddingEnd="10dp"
                 android:text="Wash Your Hands"
-                android:textColor="@color/color_primary_dark"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintStart_toStartOf="@+id/imageView4"
@@ -308,27 +286,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView34"
+                        android:id="@+id/Today_Recovered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="(+1,005)"
                         android:textColor="#97111C"
                         android:textSize="16sp"
                         android:textStyle="normal"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView29"
-                        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                        app:layout_constraintStart_toStartOf="@+id/Recovered"
+                        app:layout_constraintTop_toBottomOf="@+id/Recovered" />
 
                     <TextView
-                        android:id="@+id/textView29"
+                        android:id="@+id/Recovered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="10,56,465"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
                         app:layout_constraintStart_toStartOf="@+id/view4"
@@ -401,31 +377,29 @@
                         app:layout_constraintTop_toTopOf="@+id/view2" />
 
                     <TextView
-                        android:id="@+id/textView26"
+                        android:id="@+id/Confirmed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="10,56,465"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
                         app:layout_constraintStart_toStartOf="@+id/view2"
                         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
                     <TextView
-                        android:id="@+id/textView32"
+                        android:id="@+id/Today_Confirmed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="(+1,005)"
                         android:textColor="#E897111C"
                         android:textSize="16sp"
                         android:textStyle="normal"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView26"
-                        app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                        app:layout_constraintStart_toStartOf="@+id/Confirmed"
+                        app:layout_constraintTop_toBottomOf="@+id/Confirmed" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -448,7 +422,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView33"
+                        android:id="@+id/Today_Active"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -458,17 +432,17 @@
                         android:textColor="#97111C"
                         android:textSize="16sp"
                         android:textStyle="normal"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView27"
-                        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                        app:layout_constraintStart_toStartOf="@+id/Active"
+                        app:layout_constraintTop_toBottomOf="@+id/Active" />
 
                     <TextView
-                        android:id="@+id/textView27"
+                        android:id="@+id/Active"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="10,56,465"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
                         app:layout_constraintStart_toStartOf="@+id/view3"
@@ -518,27 +492,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView35"
+                        android:id="@+id/Today_Deaths"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="(+1,005)"
                         android:textColor="#97111C"
                         android:textSize="16sp"
                         android:textStyle="normal"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView30"
-                        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+                        app:layout_constraintStart_toStartOf="@+id/Deaths"
+                        app:layout_constraintTop_toBottomOf="@+id/Deaths" />
 
                     <TextView
-                        android:id="@+id/textView30"
+                        android:id="@+id/Deaths"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="10,56,465"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
                         app:layout_constraintStart_toStartOf="@+id/view5"
@@ -585,7 +557,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/textView36"
+                        android:id="@+id/Today_Tests"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -595,17 +567,17 @@
                         android:textColor="#97111C"
                         android:textSize="16sp"
                         android:textStyle="normal"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/textView31"
-                        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+                        app:layout_constraintStart_toStartOf="@+id/Tests"
+                        app:layout_constraintTop_toBottomOf="@+id/Tests" />
 
                     <TextView
-                        android:id="@+id/textView31"
+                        android:id="@+id/Tests"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/gilroy_bold"
-                        android:text="10,56,465"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
                         app:layout_constraintStart_toStartOf="@+id/view6"
@@ -669,7 +641,7 @@
                 android:paddingLeft="10dp"
                 android:paddingEnd="10dp"
                 android:text="Use Mask"
-                android:textColor="@color/color_primary_dark"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView7"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
