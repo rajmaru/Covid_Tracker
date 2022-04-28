@@ -248,8 +248,9 @@
                 android:text="Keep Distance"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView8"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView7"
+                app:layout_constraintStart_toStartOf="@+id/imageView8"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
             <TextView
@@ -286,28 +287,19 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/Today_Recovered"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/gilroy_bold"
-                        android:textColor="#97111C"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/Recovered"
-                        app:layout_constraintTop_toBottomOf="@+id/Recovered" />
-
-                    <TextView
                         android:id="@+id/Recovered"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
-                        app:layout_constraintStart_toStartOf="@+id/view4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
                     <TextView
@@ -378,28 +370,20 @@
 
                     <TextView
                         android:id="@+id/Confirmed"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
-                        app:layout_constraintStart_toStartOf="@+id/view2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-                    <TextView
-                        android:id="@+id/Today_Confirmed"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/gilroy_bold"
-                        android:textColor="#E897111C"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/Confirmed"
-                        app:layout_constraintTop_toBottomOf="@+id/Confirmed" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -422,30 +406,19 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/Today_Active"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/gilroy_bold"
-                        android:text="(+1,005)"
-                        android:textColor="#97111C"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/Active"
-                        app:layout_constraintTop_toBottomOf="@+id/Active" />
-
-                    <TextView
                         android:id="@+id/Active"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
-                        app:layout_constraintStart_toStartOf="@+id/view3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
                     <TextView
@@ -492,28 +465,19 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/Today_Deaths"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/gilroy_bold"
-                        android:textColor="#97111C"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/Deaths"
-                        app:layout_constraintTop_toBottomOf="@+id/Deaths" />
-
-                    <TextView
                         android:id="@+id/Deaths"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
-                        app:layout_constraintStart_toStartOf="@+id/view5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
                     <TextView
@@ -557,30 +521,19 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/Today_Tests"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="16dp"
-                        android:fontFamily="@font/gilroy_bold"
-                        android:text="(+1,005)"
-                        android:textColor="#97111C"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        android:visibility="invisible"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/Tests"
-                        app:layout_constraintTop_toBottomOf="@+id/Tests" />
-
-                    <TextView
                         android:id="@+id/Tests"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
                         android:fontFamily="@font/gilroy_bold"
                         android:textColor="@color/theme_blue_dark"
                         android:textSize="25sp"
-                        app:layout_constraintStart_toStartOf="@+id/view6"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
                     <TextView
@@ -643,8 +596,8 @@
                 android:text="Use Mask"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView7"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintEnd_toStartOf="@+id/textView10"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
             <ImageView

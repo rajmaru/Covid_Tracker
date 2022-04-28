@@ -1,6 +1,7 @@
 package com.one.javacovidtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -31,17 +32,19 @@ public class MainActivity extends AppCompatActivity {
 
     ApiInterface apiInterface;
     ArrayList<CountryData> list;
-    ProgressDialog progressBar;
-    TextView date, Confirmed, Active, Recovered, Deaths, Tests, Today_Confirmed, Today_Active, Today_Recovered, Today_Deaths, Today_Tests;
+    TextView date, Confirmed, Active, Recovered, Deaths, Tests;
     PieChart pieChart;
+    ProgressDialog progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SplashScreen.installSplashScreen(this);
         setContentView(R.layout.activity_main);
+
         progressBar = new ProgressDialog(this);
         progressBar.setCancelable(false);
-        progressBar.setMessage("Loading ...");
+        progressBar.setMessage("Loading");
         progressBar.show();
 
         init();
@@ -72,10 +75,6 @@ public class MainActivity extends AppCompatActivity {
                             Tests.setText(NumberFormat.getInstance().format(tests));
 
                             setDate(list.get(i).getUpdated());
-
-                            Today_Confirmed.setText(NumberFormat.getInstance().format(Integer.parseInt(list.get(i).getTodayCases())));
-                            Today_Recovered.setText(NumberFormat.getInstance().format(Integer.parseInt(list.get(i).getTodayRecovered())));
-                            Today_Deaths.setText(NumberFormat.getInstance().format(Integer.parseInt(list.get(i).getTodayDeaths())));
 
                             pieChart.addPieSlice(new PieModel("confirmed", confirm, getResources().getColor(R.color.yellow)));
                             pieChart.addPieSlice(new PieModel("active", active, getResources().getColor(R.color.blue)));
@@ -114,11 +113,6 @@ public class MainActivity extends AppCompatActivity {
         Recovered = findViewById(R.id.Recovered);
         Deaths = findViewById(R.id.Deaths);
         Tests = findViewById(R.id.Tests);
-        Today_Confirmed = findViewById(R.id.Today_Confirmed);
-        Today_Active = findViewById(R.id.Today_Active);
-        Today_Recovered = findViewById(R.id.Today_Recovered);
-        Today_Deaths = findViewById(R.id.Today_Deaths);
-        Today_Tests = findViewById(R.id.Today_Tests);
         pieChart = findViewById(R.id.piechart);
         date = findViewById(R.id.date);
     }
