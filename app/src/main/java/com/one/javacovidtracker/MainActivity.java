@@ -81,55 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
                             String sConfirm, sActive, sRecovered, sDeaths, sTests;
 
-                            sConfirm = confirm+"";
-                            Log.d("TAG", "Confirm = "+ sConfirm);
-                            if(sConfirm.length() > 7){
-                                sConfirm = sConfirm.substring(0,sConfirm.length()-7);
-                                sConfirm = "+" + sConfirm + " cr";
-                            }else if(sConfirm.length() > 5){
-                                sConfirm = sConfirm.substring(0,sConfirm.length()-5);
-                                sConfirm = "+" + sConfirm + " lac";
-                            }
-
-                            sActive = active+"";
-                            Log.d("TAG", "Active = "+ sActive);
-                            if(sActive.length() > 7){
-                                sActive = sActive.substring(0,sActive.length()-7);
-                                sActive = "+" + sActive + " cr";
-                            }else if(sActive.length() > 5){
-                                sActive = sActive.substring(0,sActive.length()-5);
-                                sActive = "+" + sActive + " lac";
-                            }
-
-                            sRecovered = recovered+"";
-                            Log.d("TAG", "Confirm = "+ sRecovered);
-                            if(sRecovered.length() > 7){
-                                sRecovered = sRecovered.substring(0,sRecovered.length()-7);
-                                sRecovered = "+" + sRecovered + " cr";
-                            }else if(sConfirm.length() > 5){
-                                sRecovered = sRecovered.substring(0,sRecovered.length()-5);
-                                sRecovered = "+" + sRecovered + " lac";
-                            }
-
-                            sDeaths = deaths+"";
-                            Log.d("TAG", "Deaths = "+ sDeaths);
-                            if(sDeaths.length() > 7){
-                                sDeaths = sDeaths.substring(0,sDeaths.length()-7);
-                                sDeaths = "+" + sDeaths + " cr";
-                            }else if(sDeaths.length() > 5){
-                                sDeaths = sDeaths.substring(0,sDeaths.length()-5);
-                                sDeaths = "+" + sDeaths + " lac";
-                            }
-
-                            sTests = tests+"";
-                            Log.d("TAG", "Tests = "+ sTests);
-                            if(sTests.length() > 7){
-                                sTests = sTests.substring(0,sTests.length()-7);
-                                sTests = "+" + sTests + " cr";
-                            }else if(sTests.length() > 5){
-                                sTests = sTests.substring(0,sTests.length()-5);
-                                sTests = "+" + sTests + " lac";
-                            }
+                            sConfirm = NumberFormat.getInstance().format(confirm)+"";
+                            sActive = NumberFormat.getInstance().format(active)+"";
+                            sRecovered = NumberFormat.getInstance().format(recovered)+"";
+                            sDeaths = NumberFormat.getInstance().format(deaths)+"";
+                            sTests = NumberFormat.getInstance().format(tests)+"";
 
                             Confirmed.setText(sConfirm);
                             Active.setText(sActive);
