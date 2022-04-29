@@ -3,8 +3,15 @@ package com.one.javacovidtracker;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<CountryData> list;
     TextView date, Confirmed, Active, Recovered, Deaths, Tests;
     PieChart pieChart;
-    ProgressDialog progressBar;
+    AlertDialog dialog;
+    BroadcastReceiver myReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +50,13 @@ public class MainActivity extends AppCompatActivity {
         SplashScreen.installSplashScreen(this);
         setContentView(R.layout.activity_main);
 
-        progressBar = new ProgressDialog(this);
-        progressBar.setCancelable(false);
-        progressBar.setMessage("Loading");
-        progressBar.show();
+        View view = LayoutInflater.from(this).inflate(R.layout.loading_dialog, null, false);
+        dialog = new AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setView(view)
+                .create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        dialog.show();
 
         init();
 
@@ -61,18 +72,70 @@ public class MainActivity extends AppCompatActivity {
                 if (!list.isEmpty()) {
                     for (int i = 0; i < list.size(); i++) {
                         if (list.get(i).getCountry().equals("India")) {
-                            progressBar.dismiss();
+                            dialog.dismiss();
                             int confirm = Integer.parseInt(list.get(i).getCases());
                             int active = Integer.parseInt(list.get(i).getActive());
                             int recovered = Integer.parseInt(list.get(i).getRecovered());
                             int deaths = Integer.parseInt(list.get(i).getDeaths());
                             int tests = Integer.parseInt(list.get(i).getTests());
 
-                            Confirmed.setText(NumberFormat.getInstance().format(confirm));
-                            Active.setText(NumberFormat.getInstance().format(active));
-                            Recovered.setText(NumberFormat.getInstance().format(recovered));
-                            Deaths.setText(NumberFormat.getInstance().format(deaths));
-                            Tests.setText(NumberFormat.getInstance().format(tests));
+                            String sConfirm, sActive, sRecovered, sDeaths, sTests;
+
+                            sConfirm = confirm+"";
+                            Log.d("TAG", "Confirm = "+ sConfirm);
+                            if(sConfirm.length() > 7){
+                                sConfirm = sConfirm.substring(0,sConfirm.length()-7);
+                                sConfirm = "+" + sConfirm + " cr";
+                            }else if(sConfirm.length() > 5){
+                                sConfirm = sConfirm.substring(0,sConfirm.length()-5);
+                                sConfirm = "+" + sConfirm + " lac";
+                            }
+
+                            sActive = active+"";
+                            Log.d("TAG", "Active = "+ sActive);
+                            if(sActive.length() > 7){
+                                sActive = sActive.substring(0,sActive.length()-7);
+                                sActive = "+" + sActive + " cr";
+                            }else if(sActive.length() > 5){
+                                sActive = sActive.substring(0,sActive.length()-5);
+                                sActive = "+" + sActive + " lac";
+                            }
+
+                            sRecovered = recovered+"";
+                            Log.d("TAG", "Confirm = "+ sRecovered);
+                            if(sRecovered.length() > 7){
+                                sRecovered = sRecovered.substring(0,sRecovered.length()-7);
+                                sRecovered = "+" + sRecovered + " cr";
+                            }else if(sConfirm.length() > 5){
+                                sRecovered = sRecovered.substring(0,sRecovered.length()-5);
+                                sRecovered = "+" + sRecovered + " lac";
+                            }
+
+                            sDeaths = deaths+"";
+                            Log.d("TAG", "Deaths = "+ sDeaths);
+                            if(sDeaths.length() > 7){
+                                sDeaths = sDeaths.substring(0,sDeaths.length()-7);
+                                sDeaths = "+" + sDeaths + " cr";
+                            }else if(sDeaths.length() > 5){
+                                sDeaths = sDeaths.substring(0,sDeaths.length()-5);
+                                sDeaths = "+" + sDeaths + " lac";
+                            }
+
+                            sTests = tests+"";
+                            Log.d("TAG", "Tests = "+ sTests);
+                            if(sTests.length() > 7){
+                                sTests = sTests.substring(0,sTests.length()-7);
+                                sTests = "+" + sTests + " cr";
+                            }else if(sTests.length() > 5){
+                                sTests = sTests.substring(0,sTests.length()-5);
+                                sTests = "+" + sTests + " lac";
+                            }
+
+                            Confirmed.setText(sConfirm);
+                            Active.setText(sActive);
+                            Recovered.setText(sRecovered);
+                            Deaths.setText(sDeaths);
+                            Tests.setText(sTests);
 
                             setDate(list.get(i).getUpdated());
 
@@ -96,6 +159,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(myReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(myReceiver);
+    }
+
     private void setDate(String updated){
         DateFormat dateformat = new SimpleDateFormat("MMM dd, yyyy");
 
@@ -108,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        myReceiver = new MyReceiver();
         Confirmed = findViewById(R.id.Confirmed);
         Active = findViewById(R.id.Active);
         Recovered = findViewById(R.id.Recovered);
